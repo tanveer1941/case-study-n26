@@ -1,18 +1,35 @@
-# Salesforce DX Project: Next Steps
+Customer Product Information System
+📋 Project Overview
+A Salesforce-based solution that displays customer product information to service agents during case interactions and provides a REST API for external systems to access the same data.
 
-Now that you’ve created a Salesforce DX project, what’s next? Here are some documentation resources to get you started.
+🎯 Business Requirements
+Lightning Web Component: Display customer product information to agents on Case pages
 
-## How Do You Plan to Deploy Your Changes?
+REST API: Provide external systems with customer product data using UUID
 
-Do you want to deploy a set of changes, or create a self-contained application? Choose a [development model](https://developer.salesforce.com/tools/vscode/en/user-guide/development-models).
+Scalable Data Model: Support multiple products per customer with flexible pricing
 
-## Configure Your Salesforce DX Project
+🏗️ Solution Architecture
+Data Model
+Contact (Standard Object)
+├── UUID__c (External ID, Unique)
+└── Contact_Product__c (Junction Object)
+    ├── Product_Information__c (Master-Detail)
+    ├── Contract_Term_Months__c
+    └── Special_Discount__c
 
-The `sfdx-project.json` file contains useful configuration information for your project. See [Salesforce DX Project Configuration](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_ws_config.htm) in the _Salesforce DX Developer Guide_ for details about this file.
+Product_Information__c (Custom Object)
+├── Plan_Type__c (Picklist: Standard, Black, Metal)
+├── Country_Code__c (Picklist: DE, FR, ES, IT, UK)
+├── Monthly_Cost__c (Currency)
+├── ATM_Fee__c (Percent)
+└── Card_Replacement_Cost__c (Currency)
 
-## Read All About It
+Components
+LWC Component: productInfoDisplay - Displays on Case pages
 
-- [Salesforce Extensions Documentation](https://developer.salesforce.com/tools/vscode/)
-- [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
-- [Salesforce DX Developer Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_intro.htm)
-- [Salesforce CLI Command Reference](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference/cli_reference.htm)
+Apex Controller: ProductInformationController - Business logic
+
+REST API: ContactProductAPI - External system integration
+
+Test Classes: Comprehensive test coverage

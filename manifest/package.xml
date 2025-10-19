@@ -7,6 +7,11 @@
         <members>Contact_Product__c</members>
         <name>CustomObject</name>
     </types>
+
+    <types>
+        <members>Contact.UUID__c</members>
+        <name>CustomField</name>
+    </types>
     
     <types>
         <members>ProductInformationController</members>

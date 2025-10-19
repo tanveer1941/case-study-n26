@@ -16,7 +16,10 @@ global with sharing class ContactProductAPI {
             
             // Query Contact using UUID
             List<Contact> contacts = [
-                SELECT Id FROM Contact WHERE UUID__c = :uuid LIMIT 1
+                SELECT Id 
+                  FROM Contact 
+                 WHERE UUID__c = :uuid 
+                 LIMIT 1
             ];
             
             if (contacts.isEmpty()) {

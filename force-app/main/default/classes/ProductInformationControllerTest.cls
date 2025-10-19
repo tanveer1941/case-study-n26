@@ -10,7 +10,10 @@ public with sharing class ProductInformationControllerTest {
     @IsTest
     static void testGetContactProductInfo_Success() {
         // Get test contact
-        Contact testContact = [SELECT Id FROM Contact WHERE UUID__c = 'test-uuid-123' LIMIT 1];
+        Contact testContact = [SELECT Id 
+                                 FROM Contact 
+                                WHERE UUID__c = 'test-uuid-123' 
+                                LIMIT 1];
         
         Test.startTest();
         Contact_Product__c result = ProductInformationController.getContactProductInfo(testContact.Id);
