@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    
+    
+    <types>
+        <members>Product_Information__c</members>
+        <members>Contact_Product__c</members>
+        <name>CustomObject</name>
+    </types>
+    
+    <types>
+        <members>ProductInformationController</members>
+        <members>ProductInformationControllerTest</members>
+        <members>ContactProductAPI</members>
+        <members>ContactProductAPITest</members>
+        <members>TestDataFactory</members>
+        <name>ApexClass</name>
+    </types>
+    
+    
+    
+    <types>
+        <members>productInfoDisplay</members>
+        <name>LightningComponentBundle</name>
+    </types>
+    
+    <version>65.0</version>
+</Package>
